@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/api/posts'
+const BASE = import.meta.env.VITE_API_BASE_URL || 'https://facebooklike-api.onrender.com/api/posts'
 
 async function handleResponse(res) {
   if (!res.ok) {
