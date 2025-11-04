@@ -1,0 +1,99 @@
+:root{
+  --bg:#f0f2f5;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#1877f2;
+  --danger:#e53935;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#111}
+
+.app .header{
+  background:linear-gradient(90deg,#fff 0%, #f8fafc 100%);
+  padding:1rem;
+  border-bottom:1px solid #e6e6e6;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.header h1{margin:0;font-size:1.5rem}
+.header .sub{margin:0;color:var(--muted);font-size:.9rem}
+
+.container{
+  /* single column layout: composer on top, feed below */
+  max-width:900px;
+  margin:1.25rem auto;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  padding:0 1rem;
+}
+
+/* make composer visually like Facebook composer: full width card, slightly larger */
+.composer {
+  background:var(--card);
+  padding:1rem;
+  border-radius:8px;
+  box-shadow:0 1px 4px rgba(16,24,40,0.04);
+  display:block;
+}
+
+/* feed sits below and stretches full width */
+.feed {
+  background:var(--card);
+  padding:0.75rem 1rem;
+  border-radius:8px;
+  box-shadow:0 1px 4px rgba(16,24,40,0.04);
+  min-height:200px;
+}
+
+/* Post form inputs */
+.post-form input, .post-form textarea{
+  width:100%;
+  padding:.6rem;
+  margin:.35rem 0;
+  border:1px solid #ddd;
+  border-radius:6px;
+  font-size:1rem;
+}
+.post-form textarea{min-height:100px; resize:vertical}
+.post-form .form-actions{display:flex;gap:.5rem;align-items:center}
+.post-form button{background:var(--accent);color:#fff;padding:.5rem .8rem;border-radius:6px;border:0;cursor:pointer}
+.post-form .btn-link{background:transparent;color:var(--muted);border:0;cursor:pointer}
+.post-form .error{color:var(--danger);margin-top:.5rem}
+
+/* Muted text */
+.post-list .muted, .muted{color:var(--muted)}
+
+/* Post card styling - make them span the feed width, separated */
+.post-card{
+  border:1px solid #eee;
+  padding:1rem;
+  margin:0.75rem 0;
+  border-radius:8px;
+  background:linear-gradient(180deg,#fff,#fff);
+}
+.post-header{display:flex;justify-content:space-between;align-items:center}
+.post-header .author{font-weight:600}
+.post-body p{margin:0.5rem 0}
+.post-image{max-width:100%;margin-top:.5rem;border-radius:6px}
+.post-meta{color:var(--muted);margin-top:.5rem}
+.post-actions{display:flex;gap:.5rem;margin-top:.75rem}
+.post-actions button{padding:.4rem .6rem;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+.post-actions .danger{border-color:transparent;background:var(--danger);color:#fff}
+.footer{max-width:900px;margin:1rem auto;text-align:center;color:var(--muted)}
+
+/* Make the composer inputs slightly larger and more Facebook-like on wide screens */
+@media (min-width: 720px){
+  .composer { padding:1.25rem }
+  .post-form textarea{min-height:120px}
+}
+
+/* responsive: keep single column on small screens */
+@media (max-width: 800px){
+  .container{padding:0 .6rem}
+  .composer, .feed { padding:0.9rem }
+}
